@@ -1,1 +1,87 @@
-<h1>hello</h1>
+---
+layout: default
+title: Chimp Game Engine
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chimp Game Engine</title>
+</head>
+<body>
+  <h1>Chimp</h1>
+  <p>
+    Chimp is a 3D game engine with networking, lighting &amp; shadow support, music &amp; positional sound effects, 
+    editor, ECS supporting serialisation, and ref-counted resource management.  
+    It was originally started as a university project and later continued as a passion project.
+  </p>
+
+  <h2>Screenshots &amp; Demo</h2>
+  <img src="https://raw.githubusercontent.com/underscore95/underscore95.github.io/main/chimp.png" alt="Chimp Screenshot" width="600">
+  <img src="https://raw.githubusercontent.com/underscore95/underscore95.github.io/main/chimp_gif.gif" alt="Chimp Demo" width="600">
+
+  <h2>Videos</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/NDiz5kLaRjI" title="Chimp Video 1" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/aHkK3QgLgjg" title="Chimp Video 2" frameborder="0" allowfullscreen></iframe>
+
+  <h2>Example Project</h2>
+  <p>
+    <strong>Blaboon</strong> is a Bloons TD Battles clone developed using Chimp v1:  
+    <a href="https://github.com/underscore95/Blaboon" target="_blank">View Blaboon on GitHub</a>
+  </p>
+
+  <h2>Main Features</h2>
+  <h3>Graphics</h3>
+  <ul>
+    <li>Render textured sprites and 3D models</li>
+    <li>Basic lighting (4 spotlights, 4 point lights, 4 directional lights)</li>
+    <li>Shadow mapping (including omnidirectional shadow mapping)</li>
+    <li>Supports custom user-written shaders (no lighting in custom shaders though)</li>
+    <li>OpenGL backend</li>
+  </ul>
+
+  <h3>Networking</h3>
+  <ul>
+    <li>Packets can be sent as binary data over TCP protocol</li>
+    <li>Chimp can host a server or connect to another server</li>
+    <li>Packets can be listened for using events</li>
+    <li>Packets support callbacks</li>
+    <li>Clients communicate via server (not peer-to-peer)</li>
+    <li>Networking runs on dedicated thread; events &amp; callbacks run on main thread</li>
+    <li>ENet backend</li>
+  </ul>
+
+  <h3>Entities</h3>
+  <ul>
+    <li>ECS wrapping FLECS</li>
+    <li>Entity hierarchy with parent/child transforms</li>
+    <li>JSON de/serialisation</li>
+    <li>Custom reflection system for serialisation and editor integration</li>
+  </ul>
+
+  <h3>Resource Management</h3>
+  <ul>
+    <li>Automatic unload of unused resources</li>
+    <li>No reload of shared resources when switching scenes</li>
+  </ul>
+
+  <h3>Audio</h3>
+  <ul>
+    <li>Sound effect system with pitch/volume variation</li>
+    <li>Positional audio</li>
+    <li>Music with cross-fade</li>
+    <li>OpenAL backend</li>
+  </ul>
+
+  <h3>Editor</h3>
+  <ul>
+    <li>Optional; full code workflow supported</li>
+    <li>Scene view with live updates</li>
+    <li>Entity creation/removal</li>
+    <li>Entity inspector for components</li>
+    <li>Asset manager for browsing data</li>
+    <li>Asset importer (WIP, editor-only)</li>
+  </ul>
+</body>
+</html>
