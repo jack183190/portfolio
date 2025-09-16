@@ -8,23 +8,68 @@ title: Portfolio
 <head>
   <meta charset="UTF-8">
   <title>Portfolio - Chimp</title>
+  <style>
+    .row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .media {
+      flex: 1;
+      min-width: 300px;
+    }
+    img, iframe {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    iframe {
+      aspect-ratio: 16/9;
+    }
+  </style>
 </head>
 <body>
   <h1>Chimp</h1>
-  <p>
-    Chimp is a 3D game engine with networking, lighting & shadow support, music & positional sound effects, 
-    editor, ECS supporting serialisation, and ref-counted resource management.<br>
-    It was originally started as a university project and later continued as a passion project.
-  </p>
 
-  <img src="https://raw.githubusercontent.com/underscore95/underscore95.github.io/main/chimp.png" alt="Chimp Screenshot" width="600">
-  <br><br>
-  <img src="https://raw.githubusercontent.com/underscore95/underscore95.github.io/main/chimp_gif.gif" alt="Chimp Demo" width="600">
-  <br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/NDiz5kLaRjI" 
-          title="YouTube video 1" frameborder="0" allowfullscreen></iframe>
-  <br><br>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/aHkK3QgLgjg" 
-          title="YouTube video 2" frameborder="0" allowfullscreen></iframe>
+  <div class="row">
+    <div class="text">
+      <p>
+        Chimp is a 3D game engine with networking, lighting & shadow support, music & positional sound effects, 
+        editor, ECS supporting serialisation, and ref-counted resource management.<br>
+        It was originally started as a university project and later continued as a passion project.
+      </p>
+    </div>
+    <div class="media">
+      <img src="https://raw.githubusercontent.com/underscore95/underscore95.github.io/main/chimp_gif.gif" 
+           alt="Chimp Demo">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="media">
+      <img src="https://raw.githubusercontent.com/underscore95/underscore95.github.io/main/chimp.png" 
+           alt="Chimp Screenshot">
+    </div>
+    <div class="media">
+      <img src="https://raw.githubusercontent.com/underscore95/underscore95.github.io/main/chimp_editor.png" 
+           alt="Chimp Editor">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="media">
+      <iframe src="https://www.youtube.com/embed/NDiz5kLaRjI" 
+              title="Chimp Video 1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="media">
+      <iframe src="https://www.youtube.com/embed/aHkK3QgLgjg" 
+              title="Chimp Video 2" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </body>
 </html>
