@@ -53,12 +53,41 @@ Just saying "Jack's" is not enough
 		display: none !important;
 	}
 
+.badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px; /* spacing below badges */
+}
+
+.badge {
+  padding: 5px 10px;
+  border: 2px solid;
+  border-radius: 50px; /* circular/rounded pill shape */
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge.personal {
+  color: #ffffff;
+  background-color: #4caf50; /* green */
+  border-color: #4caf50;
+}
+
+.badge.university {
+  color: #ffffff;
+  background-color: #2196f3; /* blue */
+  border-color: #2196f3;
+}
+
+
   </style>
 </head>
 <body>
 
 <!-- PERSONAL STATEMENT + CONTACT -->
-<div style="display: flex; gap: 20px; margin-bottom:20px; border: 1px solid #ccc; padding:10px;">
+<div style="display: flex; gap: 20px; margin-bottom:20px; border: 1px solid #434343; border-radius: 4px; padding:10px;">
   <!-- PERSONAL STATEMENT -->
   <div class="statement" style="flex: 2;">
     <h3>Personal Statement</h3>
@@ -82,6 +111,10 @@ Just saying "Jack's" is not enough
 <!-- CHIMP -->
 <hr>  
 <h1>Chimp</h1>
+<div class="badges">
+  <span class="badge personal">PERSONAL PROJECT</span>
+  <span class="badge university">UNIVERSITY ASSIGNMENT</span>
+</div>
 <div class="row">
   <div class="text">
     <p>
