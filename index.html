@@ -52,35 +52,35 @@ Just saying "Jack's" is not enough
 	.credits {
 		display: none !important;
 	}
+ .badge {
+    border: 1px solid;      /* default, can be overridden per type */
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    display: inline-block;
+  }
 
-.badges {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px; /* spacing below badges */
-}
+  .personal-project {
+    border-color: #1E90FF;  /* blue */
+    color: #1E90FF;
+  }
 
-.badge {
-  padding: 5px 10px;
-  border: 2px solid;
-  border-radius: 50px; /* circular/rounded pill shape */
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-align: center;
-  display: inline-block;
-}
+  .university-assignment {
+    border-color: #32CD32;  /* green */
+    color: #32CD32;
+  }
 
-.badge.personal {
-  color: #ffffff;
-  background-color: #4caf50; /* green */
-  border-color: #4caf50;
-}
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-.badge.university {
-  color: #ffffff;
-  background-color: #2196f3; /* blue */
-  border-color: #2196f3;
-}
-
+  .badge-container {
+    display: flex;
+    gap: 5px;
+  }
 
   </style>
 </head>
@@ -110,7 +110,13 @@ Just saying "Jack's" is not enough
 
 <!-- CHIMP -->
 <hr>  
-<h1>Chimp</h1>
+<div class="title-row">
+  <h1>Chimp</h1>
+  <div class="badge-container">
+    <span class="badge personal-project">PERSONAL PROJECT</span>
+    <span class="badge university-assignment">UNIVERSITY ASSIGNMENT</span>
+  </div>
+</div>
 <div class="badges">
   <span class="badge personal">PERSONAL PROJECT</span>
   <span class="badge university">UNIVERSITY ASSIGNMENT</span>
