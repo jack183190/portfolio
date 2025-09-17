@@ -97,16 +97,18 @@ border-color:white;
 color:white;
 }
 
-  .title-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+.title-row {
+  display: flex;
+  flex-direction: column; /* stack badges under title */
+  align-items: flex-start; /* align badges to left */
+  gap: 10px; /* space between title and badges */
+}
 
-  .badge-container {
-    display: flex;
-    gap: 5px;
-  }
+.badge-container {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px; 
+}
 
   </style>
 </head>
@@ -139,12 +141,13 @@ color:white;
 <div class="title-row">
   <h1>Chimp</h1>
   <div class="badge-container">
-	<span class="badge date-badge">Sept 2024 - June 2025</span>
+    <span class="badge date-badge">Sept 2024 - June 2025</span>
     <span class="badge personal-project">PERSONAL PROJECT</span>
     <span class="badge university-assignment">UNIVERSITY ASSIGNMENT</span>
-<span class="badge solo-project">SOLO PROJECT</span>
+    <span class="badge solo-project">SOLO PROJECT</span>
   </div>
 </div>
+
 <div class="row">
   <div class="text">
     <p>
