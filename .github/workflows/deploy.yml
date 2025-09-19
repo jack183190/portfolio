@@ -1,0 +1,26 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out your code
+      - uses: actions/checkout@v3
+
+      # Step 2: (Optional) build your site if needed
+      # Example for plain HTML/CSS/JS: nothing needed
+      # Example for a static site generator (Jekyll, Hugo, etc.), add build commands here
+
+      # Step 3: Deploy to gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # directory of your site (e.g., ./dist for built files)
+          publish_branch: gh-pages
