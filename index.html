@@ -1,0 +1,438 @@
+---
+layout: default
+---
+
+<!--
+
+# Wk feedback
+
+Just saying "Jack's" is not enough
+	-> contact information
+	-> Brief (2-3 sentences) personal statement
+
+"badge" or "tag" projects that are personal and that are coursework. To show a mix of both
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <style>
+    .row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .media {
+      flex: 1;
+      min-width: 300px;
+    }
+    img, iframe {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    iframe {
+      aspect-ratio: 16/9;
+    }
+	.fork {
+		display: none !important;
+	}
+	#header {
+		display: none !important;
+	}
+	.credits {
+		display: none !important;
+	}
+#title {
+margin-bottom: 0px !important;
+}
+ .badge {
+  border: 1px solid;     
+  border-radius: 50px;
+  padding: 4.5px;
+  gap: 2px;
+  font-size: 0.8em;  
+  display: inline-block;
+}
+
+
+  .personal-project {
+    border-color: #1E90FF;  /* blue */
+    color: #1E90FF;
+  }
+
+  .university-assignment {
+    border-color: #32CD32;  /* green */
+    color: #32CD32;
+  }
+.title-row h1 {
+  margin: 0;
+  white-space: nowrap; /* prevent breaking inside h1 */
+}
+.gamejam {
+border-color:yellow;
+color:yellow;
+}
+
+.group-project{
+border-color:pink;
+color:pink;
+}
+
+.solo-project{
+border-color:red;
+color:red;
+}
+
+.date-badge{
+border-color:white;
+color:white;
+}
+
+.title-row {
+  display: flex;
+  flex-direction: column; /* stack badges under title */
+  align-items: flex-start; /* align badges to left */
+  gap: 10px; /* space between title and badges */
+}
+
+.badge-container {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px; 
+}
+
+  </style>
+</head>
+<body>
+
+<!-- PERSONAL STATEMENT + CONTACT -->
+<div style="display: flex; gap: 20px; margin-bottom:20px; padding:10px;">
+  <!-- PERSONAL STATEMENT -->
+  <div class="statement" style="flex: 2;">
+    <h3>Personal Statement</h3>
+    <p>
+      Hi! I'm Jack Briggs.<br>
+      I'm interested in low-level programming, Vulkan and OpenGL, and I work with Unity for larger game projects.<br>
+      Outside of game development, I enjoy cooking, speed-solving Rubik's cubes, and creating server-side Minecraft mods.
+    </p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact" style="flex: 1;">
+    <h3>Contact Me</h3>
+    <p>
+      <a href="mailto:jg.briggs.2004@gmail.com">jg.briggs.2004@gmail.com</a><br>
+      <a href="https://underscore95.itch.io/">Itch.io</a><br>
+      <a href="https://www.youtube.com/@underscore95/videos">YouTube</a><br>
+    </p>
+  </div>
+</div>
+
+<!-- CHIMP -->
+<hr>  
+<div class="title-row">
+  <h1>Chimp</h1>
+  <div class="badge-container">
+    <span class="badge date-badge">Sept 2024 - June 2025</span>
+    <span class="badge personal-project">PERSONAL PROJECT</span>
+    <span class="badge university-assignment">UNIVERSITY ASSIGNMENT</span>
+    <span class="badge solo-project">SOLO PROJECT</span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="text">
+    <p>
+      Chimp is a 3D game engine with networking, lighting & shadow support, music & positional sound effects, 
+      editor, ECS supporting serialisation, and ref-counted resource management.<br>
+      It was originally started as a university project and later continued as a passion project.
+    </p>
+    <p>
+      <a href="https://github.com/underscore95/chimp" target="_blank">GitHub</a>
+    </p>
+    <p>
+      <b>Languages & Libraries:</b> C++, OpenGL, ENet, OpenAL, Flecs, GLFW, assimp
+    </p>
+  </div>
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/chimp_gif.gif" alt="Chimp Demo">
+  </div>
+</div>
+<div class="row">
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/chimp.png" alt="Chimp Screenshot">
+  </div>
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/chimp_editor.png" alt="Chimp Editor">
+  </div>
+</div>
+<div class="row">
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/aHkK3QgLgjg" title="Chimp Video" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- BLABOON -->
+<hr>
+<div class="title-row">
+  <h1>Blaboon</h1>
+  <div class="badge-container">
+	<span class="badge date-badge">Sept 2024 - Dec 2024</span>
+    <span class="badge university-assignment">UNIVERSITY ASSIGNMENT</span>
+<span class="badge solo-project">SOLO PROJECT</span>
+  </div>
+</div>
+<div class="row">
+  <div class="text">
+    <p>
+      A 2.5D multiplayer tower defense game inspired by <a href="https://store.steampowered.com/app/1276390/Bloons_TD_Battles_2/" target="_blank">Bloons TD Battles</a>.<br>
+      Developed in my own game engine, 
+      <a href="https://github.com/underscore95/chimp" target="_blank">Chimp</a>.
+    </p>
+    <p>
+      <a href="https://github.com/underscore95/Blaboon" target="_blank">GitHub</a> |
+      <a href="https://underscore95.itch.io/blaboon" target="_blank">Itch Page</a>
+    </p>
+    <p>
+      <b>Languages & Libraries:</b> C++, 
+      <a href="https://github.com/underscore95/chimp" target="_blank">Chimp</a>
+    </p>
+  </div>
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/NDiz5kLaRjI" title="Blaboon Video" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="row">
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/blaboon1.gif" alt="Blaboon Gameplay 1">
+  </div>
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/blaboon2.gif" alt="Blaboon Gameplay 2">
+  </div>
+</div>
+
+<!-- MARMOTA MEADOW -->
+<hr>
+<div class="title-row">
+  <h1>Marmota Meadow</h1>
+  <div class="badge-container">
+	<span class="badge date-badge">Jan 2025 - May 2025</span>
+    <span class="badge university-assignment">UNIVERSITY ASSIGNMENT</span>
+<span class="badge group-project">GROUP PROJECT</span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="text">
+    <p>
+      A 3D farming sim first-person shooter.<br>
+      Defend your farm against undead groundhogs whilst selling your produce to repay your debt in time.<br>
+    </p>
+    <p>
+      <a href="https://github.com/underscore95/marmota-meadow" target="_blank">GitHub</a> |
+      <a href="https://overheat-studios.itch.io/marmota-meadow" target="_blank">Itch Page</a>
+    </p>
+    <p>
+      <b>Languages & Libraries:</b> C#, C++, Unity
+    </p>
+  </div>
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/marmota_meadow.png" alt="Marmota Meadow Screenshot">
+  </div>
+</div>
+<div class="row">
+  <div class="media">
+    <img src="https://img.itch.zone/aW1hZ2UvMzM2MDExNi8yMDk1MTYyMC5wbmc=/original/4mZfPL.png" alt="Marmota Meadow Image 1">
+  </div>
+  <div class="media">
+    <img src="https://img.itch.zone/aW1hZ2UvMzM2MDExNi8yMDk1MTYxOC5wbmc=/original/MVgiTA.png" alt="Marmota Meadow Image 2">
+  </div>
+</div>
+<div class="row">
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/yHH3yI8zBmo" title="Marmota Meadow Trailer" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/IXTrOw9T8dg" title="Marmota Meadow Gameplay" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- MEADOWSIDE -->
+<hr>
+<div class="title-row">
+  <h1>Meadowside</h1>
+  <div class="badge-container">
+   <span class="badge date-badge">Aug 2025 - Present</span>
+    <span class="badge personal-project">PERSONAL PROJECT</span>
+    <span class="badge group-project">GROUP PROJECT</span>
+  </div>
+</div>
+<div class="row">
+  <div class="text">
+    <p>
+        Relaxing park builder game developed in Unreal Engine. It is still work in progress and being developed in collaboration with an artist.
+		Features include NPCs with AI, a shop, object placement and destruction, save system, data orientated item and inventory system.
+    </p>
+
+    <p>
+      <b>Languages & Libraries:</b> C++, Unreal Engine
+    </p>
+  </div>
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/M14y-HX1IhM" title="Meadowside Development Progress" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="row">
+</div>
+
+<!-- CHARRED MANA -->
+<hr>
+<div class="title-row">
+  <h1>Charred Mana</h1>
+  <div class="badge-container">
+	<span class="badge date-badge">June 2025 - Aug 2025</span>
+    <span class="badge personal-project">PERSONAL PROJECT</span>
+<span class="badge solo-project">SOLO PROJECT</span>
+  </div>
+</div>
+<div class="row">
+  <div class="text">
+    <p>
+      A turn-based survivors-like built in Unity featuring boid-based enemies, spells, status effects, stat modifiers, level-up rewards, procedural world generation, a shop, and a save system.
+    </p>
+    <p>
+      <a href="https://github.com/underscore95/Charred-Mana/tree/main" target="_blank">GitHub</a> |
+      <a href="https://underscore95.itch.io/charred-mana" target="_blank">Itch Page</a>
+    </p>
+    <p>
+      <b>Languages & Libraries:</b> C#, Unity
+    </p>
+  </div>
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/charred_mana.gif" alt="Charred Mana Demo">
+  </div>
+</div>
+<div class="row">
+  <div class="media">
+    <img src="https://img.itch.zone/aW1hZ2UvMzczOTk2OS8yMjMyMDM1Ny5wbmc=/original/pk9xe6.png" alt="Charred Mana Screenshot">
+  </div>
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/VlscLTiBJ_4" title="Charred Mana Showcase Video" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- SUN DOG -->
+<hr>
+<div class="title-row">
+  <h1>Sun Dog</h1>
+  <div class="badge-container">
+<span class="badge gamejam">Hubworld Summer Game Jam Jamboree 25 (1 Week)</span>
+    <span class="badge personal-project">PERSONAL PROJECT</span>
+<span class="badge group-project">GROUP PROJECT</span>
+  </div>
+</div>
+<div class="row">
+  <div class="text">
+    <p>
+      Play as a dog desperate to quench their thirst over some cold beer... but dogs don't buy beer. Trade sunscreen with sunburnt people to get their clothing, disguise yourself and buy a beer... but dogs don't have money...
+    </p>
+    <p>
+      <a href="https://github.com/underscore95/DogGame" target="_blank">GitHub</a> |
+      <a href="https://innesmackenzieaitken.itch.io/sun-dog" target="_blank">Itch Page</a>
+    </p>
+    <p>
+      <b>Languages & Libraries:</b> C#, Unity
+    </p>
+  </div>
+  <div class="media">
+    <img src="https://img.itch.zone/aW1nLzIxODk5OTIzLmdpZg==/original/EmrhOE.gif" alt="Sun Dog Demo 1">
+  </div>
+</div>
+<div class="row">
+  <div class="media">
+    <img src="https://img.itch.zone/aW1nLzIxODk5OTE3LmdpZg==/original/rPKL9D.gif" alt="Sun Dog Demo 2">
+  </div>
+  <div class="media">
+    <img src="https://img.itch.zone/aW1nLzIxODk5OTIxLmdpZg==/original/QpD3UW.gif" alt="Sun Dog Demo 3">
+  </div>
+</div>
+
+<!-- ELEMENT ODDYSEY -->
+<hr>  
+<div class="title-row">
+  <h1>Element Oddysey</h1>
+  <div class="badge-container">
+    <span class="badge date-badge">Feb 2024 - May 2024</span>
+    <span class="badge university-assignment">UNIVERSITY ASSIGNMENT</span>
+    <span class="badge solo-project">SOLO PROJECT</span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="text">
+    <p>
+      Element Oddysey is a 2.5D local co-op survivors-like game built for the PS5 using Abertay University's proprietary Skateboard engine. 
+      The game features animations, controller input with haptic feedback, a shop, 3 enemy types, 4 magic elements, and player stats.
+    </p>
+    <p>
+      <a href="https://github.com/underscore95/ElementOddysey/tree/main" target="_blank">GitHub</a>
+    </p>
+    <p>
+      <b>Languages & Libraries:</b> C++, Skateboard (Proprietary PS5 Framework), entt
+    </p>
+  </div>
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/element_oddysey1.gif" alt="Element Oddysey Demo 1">
+  </div>
+</div>
+
+<div class="row">
+  <div class="media">
+    <img src="https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/element_oddysey2.gif" alt="Element Oddysey Demo 2">
+  </div>
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/k8oT39oFdPc" title="Element Oddysey Video" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- HYSUMMIT -->
+<hr>
+<div class="title-row">
+  <h1>Hysummit</h1>
+  <div class="badge-container">
+   <span class="badge date-badge">Aug 2023 - Mar 2024</span>
+    <span class="badge personal-project">PERSONAL PROJECT</span>
+    <span class="badge group-project">GROUP PROJECT</span>
+  </div>
+</div>
+<div class="row">
+  <div class="text">
+    <p>
+        Hysummit is a Minecraft server which uses server side mods to add custom gameplay mechanics without requiring players to download mods. <br>
+		I created a server side Minecraft mod that implements a multi-server dungeon instancing system using Redis pub/sub for communicating between servers and SQLite for persistence using Java,
+		with a lobby and party system enabling players to form private or public groups and launch new dungeon instances on remote servers once minimum party size was met.
+    </p>
+
+    <p>
+      <b>Languages & Libraries:</b> Java, PaperMC, Redis, SQLite
+    </p>
+  </div>
+  <div class="media">
+    <iframe src="https://www.youtube.com/embed/lgwZ4i8DjHw" title="Hysummit" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="row">
+</div>
+
+</body>
+</html>
