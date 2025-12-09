@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{ '/project.css' | relative_url }}">
+<script src="{{ '/project.js' | relative_url }}"></script>
+
+<div id="projects-container"></div>
+
+<script>
+
+  const p = new Project();
+  p.name = "Chimp";
+  p.description = "Chimp is a 3D game engine with networking, lighting & shadow support, music & positional sound effects, editor, ECS supporting serialisation, and ref-counted resource management.";
+  p.date = "Sept 2024 - June 2025";
+  p.badges = ["personal-project", "university-assignment", "solo-project"];
+
+  document.getElementById("projects-container").appendChild(renderProject(p));
+
+  addHomeButton(document.getElementById("title"));
+</script>

@@ -1,0 +1,79 @@
+.row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.media {
+    flex: 1;
+    min-width: 300px;
+}
+
+img,
+iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+iframe {
+    aspect-ratio: 16/9;
+}
+
+.fork {
+    display: none !important;
+}
+
+#header {
+    display: none !important;
+}
+
+.credits {
+    display: none !important;
+}
+
+#title {
+    margin-bottom: 0px !important;
+}
+
+.badge {
+    border: 1px solid;
+    border-radius: 50px;
+    padding: 4.5px;
+    gap: 2px;
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+.title-row h1 {
+    margin: 0;
+    white-space: nowrap;
+    /* prevent breaking inside h1 */
+}
+
+.date-badge {
+    border-color: white;
+    color: white;
+}
+
+.title-row {
+    display: flex;
+    flex-direction: column;
+    /* stack badges under title */
+    align-items: flex-start;
+    /* align badges to left */
+    gap: 10px;
+    /* space between title and badges */
+}
+
+.badge-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
