@@ -11,6 +11,12 @@ class Project {
     this.badges = [];
     this.date = "";
     this.media = [];
+    this.discord = "";
+    this.github = "";
+    this.itch = "";
+    this.libs = "";
+    this.longDesc = "";
+    this.url = "chimp.html";
   }
 }
 
@@ -19,8 +25,9 @@ registerBadge("university-assignment", "UNIVERSITY ASSIGNMENT", "#32CD32");
 registerBadge("solo-project", "SOLO PROJECT", "red");
 registerBadge("gamejam", "GAME JAM", "yellow");
 
-
 function renderProject(project) {
+  const isHomePage = window.location.pathname == "";
+
   const container = document.createElement("div");
   container.className = "project";
 
@@ -28,7 +35,9 @@ function renderProject(project) {
   titleRow.className = "title-row";
 
   const title = document.createElement("h1");
-  title.textContent = project.name;
+  if (isHomePage)
+    title.innerHTML = "<a href=\"projects/chimp.html\">  " + project.name + "</a>";
+  else title.textContent = project.name;
 
   const badgeContainer = document.createElement("div");
   badgeContainer.className = "badge-container";
@@ -43,13 +52,11 @@ function renderProject(project) {
   project.badges.forEach(id => {
     const badgeInfo = BadgeRegistry.get(id);
     if (!badgeInfo) return;
-
     const span = document.createElement("span");
     span.className = "badge";
     span.textContent = badgeInfo.text;
     span.style.borderColor = badgeInfo.color;
     span.style.color = badgeInfo.color;
-
     badgeContainer.appendChild(span);
   });
 
@@ -65,52 +72,169 @@ function renderProject(project) {
 
   const descP = document.createElement("p");
   descP.textContent = project.description;
-
   textDiv.appendChild(descP);
+
+  const libsP = document.createElement("p");
+  libsP.innerHTML = "<span style='color:#f5c401'>Languages & Libraries:</span><span> " + project.libs + "</span>";
+  textDiv.appendChild(libsP);
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.style.display = "flex";
+  buttonContainer.style.gap = "10px";
+  buttonContainer.style.marginTop = "12px";
+  buttonContainer.style.marginBottom = "0";
+
+  function createIconButton(url, imgSrc, altText) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.style.display = "inline-block";
+    link.style.width = "32px";
+    link.style.height = "32px";
+    link.style.borderRadius = "4px";
+    link.style.overflow = "hidden";
+
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    img.alt = altText;
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "contain";
+
+    link.appendChild(img);
+    return link;
+  }
+
+  if (project.discord) {
+    buttonContainer.appendChild(createIconButton(project.discord, "../assets/discord.svg", "Discord"));
+  }
+  if (project.github) {
+    buttonContainer.appendChild(createIconButton(project.github, "../assets/github.svg", "GitHub"));
+  }
+  if (project.itch) {
+    buttonContainer.appendChild(createIconButton(project.itch, "../assets/itch.svg", "Itch.io"));
+  }
+
+  if (buttonContainer.childElementCount > 0) {
+    textDiv.appendChild(buttonContainer);
+  }
+
   textRow.appendChild(textDiv);
   container.appendChild(textRow);
 
-  // Media rendering
-  project.media.forEach(src => {
-    const mediaRow = document.createElement("div");
-    mediaRow.className = "row";
+  if (project.media.length > 0) {
+    const mediaContainer = document.createElement("div");
+    mediaContainer.className = "media-container";
 
-    const mediaDiv = document.createElement("div");
-    mediaDiv.className = "media";
+    const mainMediaDiv = document.createElement("div");
+    mainMediaDiv.className = "main-media";
 
-    if (src.includes("youtube.com") || src.includes("youtu.be")) {
-      let videoId = null;
-      if (src.includes("youtube.com")) {
-        const url = new URL(src);
-        videoId = url.searchParams.get("v");
-      } else if (src.includes("youtu.be")) {
-        videoId = src.split("/").pop();
+    function createMainMediaElement(src) {
+      if (src.includes("youtube.com") || src.includes("youtu.be")) {
+        let videoId = null;
+        if (src.includes("youtube.com")) {
+          const url = new URL(src);
+          videoId = url.searchParams.get("v");
+        } else if (src.includes("youtu.be")) {
+          videoId = src.split("/").pop();
+        }
+        if (videoId) {
+          const iframe = document.createElement("iframe");
+          iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          iframe.setAttribute("frameborder", "0");
+          iframe.setAttribute("allowfullscreen", "true");
+          iframe.style.width = "100%";
+          iframe.style.aspectRatio = "16/9";
+          iframe.style.objectFit = "cover";
+          return iframe;
+        }
+      } else {
+        const img = document.createElement("img");
+        img.src = `../assets/${src}`;
+        img.style.width = "100%";
+        img.style.aspectRatio = "16/9";
+        img.style.objectFit = "cover";
+        return img;
       }
-      if (videoId) {
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://www.youtube.com/embed/${videoId}`;
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "true");
-        iframe.style.width = "100%";
-        iframe.style.aspectRatio = "16/9";
-        iframe.style.objectFit = "cover";
-        mediaDiv.appendChild(iframe);
-      }
-    } else {
-      const img = document.createElement("img");
-      img.src = `../assets/${src}`;
-      img.style.width = "100%";
-      img.style.aspectRatio = "16/9";
-      img.style.objectFit = "cover";
-      mediaDiv.appendChild(img);
+      return null;
     }
 
-    mediaRow.appendChild(mediaDiv);
-    container.appendChild(mediaRow);
-  });
+    let currentMain = createMainMediaElement(project.media[0]);
+    mainMediaDiv.appendChild(currentMain);
+    mediaContainer.appendChild(mainMediaDiv);
+
+    const thumbRow = document.createElement("div");
+    thumbRow.className = "thumbnail-row";
+    thumbRow.style.display = "flex";
+    thumbRow.style.gap = "8px";
+    thumbRow.style.marginTop = "8px";
+    thumbRow.style.flexWrap = "wrap";
+
+    project.media.forEach(src => {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      wrapper.style.width = "120px";
+      wrapper.style.height = "68px";
+      wrapper.style.flexShrink = "0";
+      wrapper.style.cursor = "pointer";
+      wrapper.style.borderRadius = "4px";
+      wrapper.style.overflow = "hidden";
+
+      const thumb = document.createElement("img");
+      if (src.includes("youtube.com") || src.includes("youtu.be")) {
+        let videoId = null;
+        if (src.includes("youtube.com")) {
+          const url = new URL(src);
+          videoId = url.searchParams.get("v");
+        } else if (src.includes("youtu.be")) {
+          videoId = src.split("/").pop();
+        }
+        if (videoId) {
+          thumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+          const playIcon = document.createElement("div");
+          playIcon.innerHTML = "▶";
+          playIcon.style.position = "absolute";
+          playIcon.style.top = "50%";
+          playIcon.style.left = "50%";
+          playIcon.style.transform = "translate(-50%, -50%)";
+          playIcon.style.fontSize = "24px";
+          playIcon.style.color = "white";
+          playIcon.style.textShadow = "0 0 4px rgba(0,0,0,0.7)";
+          wrapper.appendChild(playIcon);
+        }
+      } else {
+        thumb.src = `../assets/${src}`;
+      }
+
+      thumb.style.width = "100%";
+      thumb.style.height = "100%";
+      thumb.style.objectFit = "cover";
+      wrapper.appendChild(thumb);
+
+      wrapper.addEventListener("click", () => {
+        mainMediaDiv.replaceChild(createMainMediaElement(src), currentMain);
+        currentMain = mainMediaDiv.firstChild;
+      });
+
+      thumbRow.appendChild(wrapper);
+    });
+
+
+    mediaContainer.appendChild(thumbRow);
+    container.appendChild(mediaContainer);
+  }
+
+  if (project.longDesc) {
+    const longP = document.createElement("p");
+    longP.innerHTML = project.longDesc;
+    longP.style.marginTop = "20px";
+    container.appendChild(longP);
+  }
 
   return container;
 }
+
 
 // create home button
 function addHomeButton(parentElement) {
