@@ -14,5 +14,7 @@ charredMana.itch = "https://underscore95.itch.io/charred-mana";
 charredMana.discord = "";
 charredMana.libs = "C#, Unity, Python";
 charredMana.longDesc = "";
+charredMana.thumbnail = "charred_mana2.png";
+charredMana.url = "charred_mana.html";
 
-document.getElementById("projects-container").appendChild(renderProject(charredMana));
+renderProject(charredMana);

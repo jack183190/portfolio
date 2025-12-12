@@ -7,6 +7,7 @@ hysummit.badges = ["personal-project", "group-project"];
 hysummit.media = [
   "https://www.youtube.com/watch?v=lgwZ4i8DjHw"
 ];
+hysummit.thumbnail = "hysummit_thumb.png";
 hysummit.github = ""; 
 hysummit.itch = "";  
 hysummit.discord = "https://discord.gg/VdYhwSUmKv"; 
@@ -17,5 +18,6 @@ hysummit.longDesc = "I created a server-side Minecraft mod that implements a mul
 + "<br><br>I also worked on an item skin system, crates, RPG style classes, and item titles (similar to reforges from Terraria)."
 + "<br><br>I worked in a team of approximately 10 in a Kanban workflow, all my pull requests were reviewed by another programmer, I conducted code reviews, and wrote unit tests using JUnit"
 + " which our CI/CD pipeline automatically ran."
+hysummit.url = "hysummit.html"
 
-document.getElementById("projects-container").appendChild(renderProject(hysummit));
+renderProject(hysummit);

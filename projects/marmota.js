@@ -10,6 +10,7 @@ marmotaMeadow.media = [
   "marmota_meadow1.png",
   "marmota_meadow2.png"
 ];
+marmotaMeadow.thumbnail = "marmota_meadow2.png";
 marmotaMeadow.github = "https://github.com/OverheatStudios/MarmotaMeadow";
 marmotaMeadow.itch = "https://overheat-studios.itch.io/marmota-meadow";
 marmotaMeadow.libs = "C#, C++, Unity";
@@ -19,5 +20,6 @@ marmotaMeadow.longDesc = "Marmota Meadow is an FPS farming simulator developed u
   + "<a href=\"https://docs.google.com/document/d/1FaVYZs17U-sBi7r-KSaNL5WfgXVVLKB6NPgRcVgVeSE/edit?tab=t.0\">Technical Design Document</a>, delegated tasks to the"
   + " other programmer, worked closely with the UI artist, " +
   " managed our Git repository including resolving merge conflicts and supporting team members unfamiliar with Git, and conducted external playtests to find design issues and bugs.";
+marmotaMeadow.url = "marmota.html"
 
-document.getElementById("projects-container").appendChild(renderProject(marmotaMeadow));
+renderProject(marmotaMeadow);

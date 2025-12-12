@@ -8,13 +8,15 @@ elementOddysey.badges = ["university-assignment", "solo-project"];
 elementOddysey.media = [
   "element_oddysey1.gif",
   "element_oddysey2.gif",
-  "https://www.youtube.com/watch?v=k8oT39oFdPc"
+  "https://www.youtube.com/waftch?v=k8oT39oFdPc"
 ];
+elementOddysey.thumbnail = "element_thumb.png";
 
 elementOddysey.github = "https://github.com/underscore95/ElementOddysey/tree/main";
 elementOddysey.itch = "";
 elementOddysey.discord = "";
 elementOddysey.libs = "C++, Skateboard (Proprietary PS5 Framework), entt, ImGui";
 elementOddysey.longDesc = "The game features an entity component system, 2D animations, controller input with haptic feedback, a shop, 3 enemy types, 4 magic elements, and player stats.";
+elementOddysey.url = "element.html";
 
-document.getElementById("projects-container").appendChild(renderProject(elementOddysey));
+renderProject(elementOddysey);

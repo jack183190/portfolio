@@ -13,5 +13,7 @@ blaboon.itch = "https://underscore95.itch.io/blaboon";
 blaboon.libs = "C++, Chimp";
 blaboon.discord = "";
 blaboon.longDesc = "";
+blaboon.thumbnail = "blaboon_thumb.png"
+blaboon.url = "blaboon.html"
 
-document.getElementById("projects-container").appendChild(renderProject(blaboon));
+renderProject(blaboon);

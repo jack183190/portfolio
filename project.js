@@ -16,7 +16,9 @@ class Project {
     this.itch = "";
     this.libs = "";
     this.longDesc = "";
-    this.url = "chimp.html";
+    this.url = "";
+    this.homepageProject = false;
+    this.thumbnail = "";
   }
 }
 
@@ -27,18 +29,69 @@ registerBadge("group-project", "GROUP PROJECT", "pink");
 registerBadge("gamejam", "GAME JAM", "yellow");
 registerBadge("work", "WORK PROJECT", "green");
 
+function renderThumbnail(project) {
+  if (!project.media || project.media.length === 0) return null;
+
+  const imgPath = project.thumbnail;
+  if (!imgPath) {
+    console.error("No thumbnail image for project: " + project.name);
+    return;
+  }
+
+  const fullPath = "/assets/" + imgPath;
+
+  const tile = document.createElement("div");
+  tile.className = "project-tile";
+
+  const link = document.createElement("a");
+  link.href = "/projects/" + project.url;
+  link.style.display = "flex";
+  link.style.flexDirection = "column";
+  link.style.alignItems = "center";
+  link.style.textAlign = "center";
+
+  const img = document.createElement("img");
+  img.src = fullPath;
+  img.alt = project.name;
+  img.style.width = "100%";
+  img.style.borderRadius = "6px";
+
+  const label = document.createElement("p");
+  label.textContent = project.name;
+  label.style.margin = "8px 0 0 0";
+
+  link.appendChild(img);
+  link.appendChild(label);
+  tile.appendChild(link);
+
+  document.getElementById("other-projects").appendChild(tile);
+}
+
 function renderProject(project) {
-  const isHomePage = window.location.pathname == "";
+  if (project.url == "") console.error(project.name + " missing url");
+
+  const isHomePage = window.location.pathname.includes("index.html") || window.location.pathname == "";
+
+  if (isHomePage && !project.homepageProject) {
+    renderThumbnail(project);
+    return;
+  }
 
   const container = document.createElement("div");
   container.className = "project";
+
+  if (isHomePage) {
+    container.appendChild(document.createElement("p"));
+    container.appendChild(document.createElement("hr"));
+    container.appendChild(document.createElement("br"));
+  }
 
   const titleRow = document.createElement("div");
   titleRow.className = "title-row";
 
   const title = document.createElement("h1");
   if (isHomePage)
-    title.innerHTML = "<a href=\"projects/chimp.html\">  " + project.name + "</a>";
+    title.innerHTML = "<a href=\"projects/" + project.url + "\">" + project.name + "</a>";
   else title.textContent = project.name;
 
   const badgeContainer = document.createElement("div");
@@ -88,43 +141,50 @@ function renderProject(project) {
   buttonContainer.style.marginBottom = "0";
 
   const label = document.createElement("span");
-  label.textContent = "More Info:";
   label.style.fontWeight = "bold";
-  buttonContainer.appendChild(label);
 
-  function createIconButton(url, imgSrc, altText) {
-    const link = document.createElement("a");
-    link.href = url;
-    link.target = "_blank";
-    link.style.display = "inline-block";
-    link.style.width = "32px";
-    link.style.height = "32px";
-    link.style.borderRadius = "4px";
-    link.style.overflow = "hidden";
-
-    const img = document.createElement("img");
-    img.src = imgSrc;
-    img.alt = altText;
-    img.style.width = "100%";
-    img.style.height = "100%";
-    img.style.objectFit = "contain";
-
-    link.appendChild(img);
-    return link;
-  }
-
-  if (project.discord) {
-    buttonContainer.appendChild(createIconButton(project.discord, "../assets/discord.svg", "Discord"));
-  }
-  if (project.github) {
-    buttonContainer.appendChild(createIconButton(project.github, "../assets/github.svg", "GitHub"));
-  }
-  if (project.itch) {
-    buttonContainer.appendChild(createIconButton(project.itch, "../assets/itch.svg", "Itch.io"));
-  }
-
-  if (buttonContainer.childElementCount > 1) {
+  if (isHomePage) {
+    label.innerHTML = "<a href=\"projects/" + project.url + "\">Click for more information.</a>";
+    buttonContainer.appendChild(label);
     textDiv.appendChild(buttonContainer);
+  } else {
+    label.textContent = "More Info:";
+    buttonContainer.appendChild(label);
+
+    function createIconButton(url, imgSrc, altText) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.style.display = "inline-block";
+      link.style.width = "32px";
+      link.style.height = "32px";
+      link.style.borderRadius = "4px";
+      link.style.overflow = "hidden";
+
+      const img = document.createElement("img");
+      img.src = imgSrc;
+      img.alt = altText;
+      img.style.width = "100%";
+      img.style.height = "100%";
+      img.style.objectFit = "contain";
+
+      link.appendChild(img);
+      return link;
+    }
+
+    if (project.discord) {
+      buttonContainer.appendChild(createIconButton(project.discord, "../assets/discord.svg", "Discord"));
+    }
+    if (project.github) {
+      buttonContainer.appendChild(createIconButton(project.github, "../assets/github.svg", "GitHub"));
+    }
+    if (project.itch) {
+      buttonContainer.appendChild(createIconButton(project.itch, "../assets/itch.svg", "Itch.io"));
+    }
+
+    if (buttonContainer.childElementCount > 1) {
+      textDiv.appendChild(buttonContainer);
+    }
   }
 
   textRow.appendChild(textDiv);
@@ -178,69 +238,71 @@ function renderProject(project) {
     thumbRow.style.marginTop = "8px";
     thumbRow.style.flexWrap = "wrap";
 
-    project.media.forEach(src => {
-      const wrapper = document.createElement("div");
-      wrapper.style.position = "relative";
-      wrapper.style.width = "120px";
-      wrapper.style.height = "68px";
-      wrapper.style.flexShrink = "0";
-      wrapper.style.cursor = "pointer";
-      wrapper.style.borderRadius = "4px";
-      wrapper.style.overflow = "hidden";
+    if (project.media.length > 1) {
+      project.media.forEach(src => {
+        const wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+        wrapper.style.width = "120px";
+        wrapper.style.height = "68px";
+        wrapper.style.flexShrink = "0";
+        wrapper.style.cursor = "pointer";
+        wrapper.style.borderRadius = "4px";
+        wrapper.style.overflow = "hidden";
 
-      const thumb = document.createElement("img");
-      if (src.includes("youtube.com") || src.includes("youtu.be")) {
-        let videoId = null;
-        if (src.includes("youtube.com")) {
-          const url = new URL(src);
-          videoId = url.searchParams.get("v");
-        } else if (src.includes("youtu.be")) {
-          videoId = src.split("/").pop();
+        const thumb = document.createElement("img");
+        if (src.includes("youtube.com") || src.includes("youtu.be")) {
+          let videoId = null;
+          if (src.includes("youtube.com")) {
+            const url = new URL(src);
+            videoId = url.searchParams.get("v");
+          } else if (src.includes("youtu.be")) {
+            videoId = src.split("/").pop();
+          }
+          if (videoId) {
+            thumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+            const playIcon = document.createElement("div");
+            playIcon.innerHTML = "▶";
+            playIcon.style.position = "absolute";
+            playIcon.style.top = "50%";
+            playIcon.style.left = "50%";
+            playIcon.style.transform = "translate(-50%, -50%)";
+            playIcon.style.fontSize = "24px";
+            playIcon.style.color = "white";
+            playIcon.style.textShadow = "0 0 4px rgba(0,0,0,0.7)";
+            wrapper.appendChild(playIcon);
+          }
+        } else {
+          thumb.src = `../assets/${src}`;
         }
-        if (videoId) {
-          thumb.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
-          const playIcon = document.createElement("div");
-          playIcon.innerHTML = "▶";
-          playIcon.style.position = "absolute";
-          playIcon.style.top = "50%";
-          playIcon.style.left = "50%";
-          playIcon.style.transform = "translate(-50%, -50%)";
-          playIcon.style.fontSize = "24px";
-          playIcon.style.color = "white";
-          playIcon.style.textShadow = "0 0 4px rgba(0,0,0,0.7)";
-          wrapper.appendChild(playIcon);
-        }
-      } else {
-        thumb.src = `../assets/${src}`;
-      }
+        thumb.style.width = "100%";
+        thumb.style.height = "100%";
+        thumb.style.objectFit = "cover";
+        wrapper.appendChild(thumb);
 
-      thumb.style.width = "100%";
-      thumb.style.height = "100%";
-      thumb.style.objectFit = "cover";
-      wrapper.appendChild(thumb);
+        wrapper.addEventListener("click", () => {
+          mainMediaDiv.replaceChild(createMainMediaElement(src), currentMain);
+          currentMain = mainMediaDiv.firstChild;
+        });
 
-      wrapper.addEventListener("click", () => {
-        mainMediaDiv.replaceChild(createMainMediaElement(src), currentMain);
-        currentMain = mainMediaDiv.firstChild;
+        thumbRow.appendChild(wrapper);
       });
-
-      thumbRow.appendChild(wrapper);
-    });
+    }
 
 
     mediaContainer.appendChild(thumbRow);
     container.appendChild(mediaContainer);
   }
 
-  if (project.longDesc) {
+  if (project.longDesc && !isHomePage) {
     const longP = document.createElement("p");
     longP.innerHTML = project.longDesc;
     longP.style.marginTop = "20px";
     container.appendChild(longP);
   }
 
-  return container;
+  document.getElementById("projects-container").appendChild(container);
 }
 
 
