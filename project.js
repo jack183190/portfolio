@@ -144,7 +144,7 @@ function renderProject(project) {
   label.style.fontWeight = "bold";
 
   if (isHomePage) {
-    label.innerHTML = "<a href=\"projects/" + project.url + "\">Click for more information.</a>";
+    label.innerHTML = "<a href=\"projects/" + project.url + "\">Click here for more information.</a>";
     buttonContainer.appendChild(label);
     textDiv.appendChild(buttonContainer);
   } else {
