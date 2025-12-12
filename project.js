@@ -70,7 +70,7 @@ function renderThumbnail(project) {
 function renderProject(project) {
   if (project.url == "") console.error(project.name + " missing url");
 
-  const isHomePage = window.location.pathname.includes("index.html") || window.location.pathname == "";
+  const isHomePage = window.location.pathname.includes("index.html") || window.location.pathname == "/portfolio/";
 
   if (isHomePage && !project.homepageProject) {
     renderThumbnail(project);
