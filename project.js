@@ -74,8 +74,10 @@ function renderProject(project) {
 
   if (isHomePage && !project.homepageProject) {
     renderThumbnail(project);
+    console.log("render thumbnail for " + project.name);
     return;
   }
+  console.log("full render for " + project.name + " | is home page: " + isHomePage + " | !homepageproject: " +   !project.homepageProject  );
 
   const container = document.createElement("div");
   container.className = "project";
