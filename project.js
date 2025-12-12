@@ -38,7 +38,7 @@ function renderThumbnail(project) {
     return;
   }
 
-  const fullPath = "/assets/" + imgPath;
+  const fullPath = "https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/assets/" + imgPath;
 
   const tile = document.createElement("div");
   tile.className = "project-tile";
@@ -173,13 +173,13 @@ function renderProject(project) {
     }
 
     if (project.discord) {
-      buttonContainer.appendChild(createIconButton(project.discord, "../assets/discord.svg", "Discord"));
+      buttonContainer.appendChild(createIconButton(project.discord, "https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/assets/discord.svg", "Discord"));
     }
     if (project.github) {
-      buttonContainer.appendChild(createIconButton(project.github, "../assets/github.svg", "GitHub"));
+      buttonContainer.appendChild(createIconButton(project.github, "https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/assets/github.svg", "GitHub"));
     }
     if (project.itch) {
-      buttonContainer.appendChild(createIconButton(project.itch, "../assets/itch.svg", "Itch.io"));
+      buttonContainer.appendChild(createIconButton(project.itch, "https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/assets/itch.svg", "Itch.io"));
     }
 
     if (buttonContainer.childElementCount > 1) {
@@ -218,7 +218,7 @@ function renderProject(project) {
         }
       } else {
         const img = document.createElement("img");
-        img.src = `../assets/${src}`;
+        img.src = `https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/assets/${src}`;
         img.style.width = "100%";
         img.style.aspectRatio = "16/9";
         img.style.objectFit = "cover";
@@ -273,7 +273,7 @@ function renderProject(project) {
             wrapper.appendChild(playIcon);
           }
         } else {
-          thumb.src = `../assets/${src}`;
+          thumb.src = `https://raw.githubusercontent.com/jack183190/portfolio/refs/heads/main/assets/${src}`;
         }
 
         thumb.style.width = "100%";
