@@ -23,7 +23,9 @@ class Project {
 registerBadge("personal-project", "PERSONAL PROJECT", "#1E90FF");
 registerBadge("university-assignment", "UNIVERSITY ASSIGNMENT", "#32CD32");
 registerBadge("solo-project", "SOLO PROJECT", "red");
+registerBadge("group-project", "GROUP PROJECT", "pink");
 registerBadge("gamejam", "GAME JAM", "yellow");
+registerBadge("work", "WORK PROJECT", "green");
 
 function renderProject(project) {
   const isHomePage = window.location.pathname == "";
@@ -71,7 +73,7 @@ function renderProject(project) {
   textDiv.className = "text";
 
   const descP = document.createElement("p");
-  descP.textContent = project.description;
+  descP.innerHTML = "<span>" + project.description + "</span>";
   textDiv.appendChild(descP);
 
   const libsP = document.createElement("p");
@@ -80,9 +82,15 @@ function renderProject(project) {
 
   const buttonContainer = document.createElement("div");
   buttonContainer.style.display = "flex";
+  buttonContainer.style.alignItems = "center";
   buttonContainer.style.gap = "10px";
   buttonContainer.style.marginTop = "12px";
   buttonContainer.style.marginBottom = "0";
+
+  const label = document.createElement("span");
+  label.textContent = "More Info:";
+  label.style.fontWeight = "bold";
+  buttonContainer.appendChild(label);
 
   function createIconButton(url, imgSrc, altText) {
     const link = document.createElement("a");
@@ -115,7 +123,7 @@ function renderProject(project) {
     buttonContainer.appendChild(createIconButton(project.itch, "../assets/itch.svg", "Itch.io"));
   }
 
-  if (buttonContainer.childElementCount > 0) {
+  if (buttonContainer.childElementCount > 1) {
     textDiv.appendChild(buttonContainer);
   }
 
