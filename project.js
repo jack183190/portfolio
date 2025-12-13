@@ -197,7 +197,7 @@ function renderProject(project) {
     const mainMediaDiv = document.createElement("div");
     mainMediaDiv.className = "main-media";
 
-    function createMainMediaElement(src) {
+    function createMainMediaElement(src, autoplay) {
       if (src.includes("youtube.com") || src.includes("youtu.be")) {
         let videoId = null;
         if (src.includes("youtube.com")) {
@@ -208,7 +208,8 @@ function renderProject(project) {
         }
         if (videoId) {
           const iframe = document.createElement("iframe");
-          iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          iframe.src = `https://www.youtube.com/embed/${videoId}`;
+		  if (autoplay) iframe.src += "?autoplay=1";
           iframe.setAttribute("frameborder", "0");
           iframe.setAttribute("allowfullscreen", "true");
           iframe.style.width = "100%";
@@ -227,7 +228,7 @@ function renderProject(project) {
       return null;
     }
 
-    let currentMain = createMainMediaElement(project.media[0]);
+    let currentMain = createMainMediaElement(project.media[0], false);
     mainMediaDiv.appendChild(currentMain);
     mediaContainer.appendChild(mainMediaDiv);
 
@@ -282,7 +283,7 @@ function renderProject(project) {
         wrapper.appendChild(thumb);
 
         wrapper.addEventListener("click", () => {
-          mainMediaDiv.replaceChild(createMainMediaElement(src), currentMain);
+          mainMediaDiv.replaceChild(createMainMediaElement(src, true), currentMain);
           currentMain = mainMediaDiv.firstChild;
         });
 
