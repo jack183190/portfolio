@@ -44,7 +44,7 @@ function renderThumbnail(project) {
   tile.className = "project-tile";
 
   const link = document.createElement("a");
-  link.href = "/projects/" + project.url;
+  link.href = "/portfolio/projects/" + project.url;
   link.style.display = "flex";
   link.style.flexDirection = "column";
   link.style.alignItems = "center";
