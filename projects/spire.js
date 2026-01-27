@@ -8,7 +8,7 @@ spire.badges = ["university-assignment", "solo-project"];
 spire.media = [
   "https://youtu.be/EPPyP-r3ePc"
 ];
-spire.github = "github.com/underscore95/spire";
+spire.github = "https://github.com/underscore95/spire";
 spire.itch = "";
 spire.discord = "";
 spire.libs = "C++, Vulkan, vulkan-memory-allocator, glslang, ImGui";
@@ -22,7 +22,9 @@ spire.longDesc = "Over the last month I have implemented a variety of optimisati
   + "Greedy meshing is used to further optimise generated meshes, it merges adjacent faces into a single face, reducing the number of vertices "
   + "that need to be stored. The drawback of this approach is that voxel types can no longer be stored in the vertex. I've solved this by "
   + "building a hash map when I generate the mesh mapping each voxel position to its voxel type and sending it to the GPU. "
-  + "The voxel position can be calculated by flooring the fragment position."
+  + "The voxel position can be calculated by flooring the fragment position." 
+  + "<br><br>For more information about the Vulkan abstractions, see: <a href=\"https://github.com/underscore95/Spire/blob/main/Documentation/SPIRE.md\">SPIRE.md</a>"
+  + "<br>For more information about the voxel rendering, see: <a href=\"https://github.com/underscore95/Spire/blob/main/Documentation/VOXELS.md\">VOXELS.md</a>"
 spire.homepageProject = true;
 spire.url = "spire.html";
 

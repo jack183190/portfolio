@@ -16,7 +16,8 @@ hylex.libs = "Java, PaperMC";
 hylex.longDesc = "The majority of my work at Hylex is refactoring buggy legacy code with limited, incorrect, or no documentation, updating dependencies, and fixing bugs. " +
   "<br><br>All my code was written with performance in mind as it had to handle hundreds of players interacting with systems at the same time, with hundreds of thousands of players' data stored.<br><br>" +
   "I also programmed a challenges system where players can complete challenges (quests) and obtain rewards. Challenge goals and rewards can be configured"
-  + " using YAML. Additionally I worked on an item durability system and sell wand which can automatically sell all the items in a container.";
+  + " using YAML. <img src=\"hylex_challenges.png\"></img><br>"+
+  "Additionally I worked on an item durability system and sell wand which can automatically sell all the items in a container.";
 hylex.homepageProject = true;
 hylex.url = "hylex.html"
 

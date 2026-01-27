@@ -90,6 +90,7 @@ function renderProject(project) {
   titleRow.className = "title-row";
 
   const title = document.createElement("h1");
+  title.style.color = "#f5c401";
   if (isHomePage)
     title.innerHTML = "<a href=\"projects/" + project.url + "\">" + project.name + "</a>";
   else title.textContent = project.name;
@@ -125,9 +126,11 @@ function renderProject(project) {
   const textDiv = document.createElement("div");
   textDiv.className = "text";
 
-  const descP = document.createElement("p");
-  descP.innerHTML = "<span>" + project.description + "</span>";
-  textDiv.appendChild(descP);
+  if (isHomePage == true) {
+    const descP = document.createElement("p");
+    descP.innerHTML = "<span>" + project.description + "</span>";
+    textDiv.appendChild(descP);
+  }
 
   const libsP = document.createElement("p");
   libsP.innerHTML = "<span style='color:#f5c401'>Languages & Libraries:</span><span> " + project.libs + "</span>";
@@ -140,14 +143,11 @@ function renderProject(project) {
   buttonContainer.style.marginTop = "12px";
   buttonContainer.style.marginBottom = "0";
 
-  const label = document.createElement("span");
-  label.style.fontWeight = "bold";
 
-  if (isHomePage) {
-    label.innerHTML = "<a href=\"projects/" + project.url + "\">Click here for more information.</a>";
-    buttonContainer.appendChild(label);
-    textDiv.appendChild(buttonContainer);
-  } else {
+  if (!isHomePage) {
+    const label = document.createElement("span");
+    label.style.color = "#f5c401";
+
     label.textContent = "More Info:";
     buttonContainer.appendChild(label);
 
@@ -209,7 +209,7 @@ function renderProject(project) {
         if (videoId) {
           const iframe = document.createElement("iframe");
           iframe.src = `https://www.youtube.com/embed/${videoId}`;
-		  if (autoplay) iframe.src += "?autoplay=1";
+          if (autoplay) iframe.src += "?autoplay=1";
           iframe.setAttribute("frameborder", "0");
           iframe.setAttribute("allowfullscreen", "true");
           iframe.style.width = "100%";
@@ -294,6 +294,22 @@ function renderProject(project) {
 
     mediaContainer.appendChild(thumbRow);
     container.appendChild(mediaContainer);
+  }
+
+  if (isHomePage) {
+    const moreInfoContainer = document.createElement("div");
+    moreInfoContainer.style.display = "flex";
+    moreInfoContainer.style.justifyContent = "center";
+    moreInfoContainer.style.marginTop = "24px";
+
+    const label = document.createElement("p");
+    label.style.fontWeight = "bold";
+    label.style.fontSize = "30px";
+    label.style.textAlign = "center";
+    label.innerHTML = "<a href=\"projects/" + project.url + "\">Click here for more information</a>";
+
+    moreInfoContainer.appendChild(label);
+    container.appendChild(moreInfoContainer);
   }
 
   if (project.longDesc && !isHomePage) {
