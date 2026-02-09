@@ -312,9 +312,9 @@ function renderProject(project) {
     container.appendChild(moreInfoContainer);
   }
 
-  if (project.longDesc && !isHomePage) {
+  if (!isHomePage) {
     const longP = document.createElement("p");
-    longP.innerHTML = project.longDesc;
+    longP.innerHTML = project.longDesc != "" : project.longDesc : project.desc;
     longP.style.marginTop = "20px";
     container.appendChild(longP);
   }
