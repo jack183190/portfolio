@@ -12,7 +12,7 @@ spire.github = "https://github.com/underscore95/spire";
 spire.itch = "";
 spire.discord = "";
 spire.libs = "C++, Vulkan, vulkan-memory-allocator, glslang, ImGui";
-spire.longDesc = "Over the last month I have implemented a variety of optimisations such as indirect drawing, binary greeding meshing, and vertex compression. "
+spire.longDesc = "Over the last year I have implemented a variety of optimisations such as indirect drawing, binary greeding meshing, and vertex compression. "
   + "Currently Spire can render the same 32x32 Minecraft chunks about 3x faster than Minecraft, however Spire lags behind in terms of memory usage. In addition," +
   " Minecraft is much more complciated than Spire and has transparent voxels, vfx, particles, entities, so the comparison is unfair."
   + "<br><br>The world is split into chunks of 64x64x64 voxels. A mesh is generated from each chunk, this has to happen whenever a voxel is "
