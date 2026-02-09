@@ -3,7 +3,7 @@ spire.name = "Spire";
 spire.description =
   "Spire is a rasterization-based voxel renderer written in Vulkan which can render 23+ million voxels in real time developed for my Honours project: " +
   "\"An analysis and implementation of voxel rendering optimisations for the rasterization pipeline\" ";
-spire.date = "September 2025 - Present";
+spire.date = "July 2025 - Present";
 spire.badges = ["university-assignment", "solo-project"];
 spire.media = [
   "https://youtu.be/EPPyP-r3ePc"
