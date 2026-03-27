@@ -6,7 +6,7 @@ spire.description =
 spire.date = "July 2025 - Present";
 spire.badges = ["university-assignment", "solo-project"];
 spire.media = [
-  "ao_screenshot.png", "https://youtu.be/EPPyP-r3ePc"
+  "ao_screenshot.png", "big_world.png", "https://www.youtube.com/watch?v=_pSY46rmhEM", "https://youtu.be/EPPyP-r3ePc"
 ];
 spire.github = "https://github.com/underscore95/spire";
 spire.itch = "";
