@@ -9,7 +9,7 @@ spellSlinger.media = [
   "spellslinger2.png",
   "spellslinger3.png"
 ];
-spellSlinger.thumbnail = "spellslinger1.png.png";
+spellSlinger.thumbnail = "spellslinger1.png";
 spellSlinger.github = "https://github.com/underscore95/Spellslinger";
 spellSlinger.itch = "https://mali298.itch.io/spellslinger";
 spellSlinger.discord = "";
