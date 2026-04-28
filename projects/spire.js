@@ -23,7 +23,7 @@ spire.longDesc = "Over the last year I have implemented a variety of optimisatio
   + "building a custom data structure when I generate the mesh mapping each quad to a 2D array of all voxel data contained within the quad. "
   + "<br><br>For more information about the Vulkan abstractions, see: <a href=\"https://github.com/underscore95/Spire/blob/main/Documentation/SPIRE.md\">SPIRE.md</a>"
   + "<br>For more information about the voxel rendering, see: <a href=\"https://github.com/underscore95/Spire/blob/main/Documentation/VOXELS.md\">VOXELS.md</a>"
-  + "<br>I also created a YouTube video explaining my greedy meshing implementation along with my custom data structure for voxel data storage:"
+  + "<br><br>I also created a YouTube video explaining my greedy meshing implementation along with my custom data structure for voxel data storage:"
   + "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Z3atq5uAmOY?si=eNfqEHgIlm3Bl8uX\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" "
   + "referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>";
 spire.homepageProject = true;
