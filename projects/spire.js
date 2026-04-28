@@ -2,7 +2,7 @@ const spire = new Project();
 spire.name = "Spire";
 spire.description =
   "Spire is a rasterization-based voxel renderer written in Vulkan which can render 10+ billion voxels in full detail in real time developed for my Honours project. " +
-  "Performance was Spire's focus and I ended up implementing Binary Greedy Meshing with a custom voxel data structure, Voxel Ambient Occlusion, traditional and custom culling algorithms, and Level of Detail."
+  "Performance was Spire's focus and I ended up implementing Binary Greedy Meshing with a custom voxel data structure, Voxel Ambient Occlusion, traditional and custom culling algorithms, and Level of Detail.<br>"
   + "<br>I also created a YouTube video explaining my Binary Greedy Meshing implementation and custom voxel data structure, available <a href=\"https://youtu.be/Z3atq5uAmOY\">here</a>.";
 spire.date = "July 2025 - Present";
 spire.badges = ["university-assignment", "solo-project"];
